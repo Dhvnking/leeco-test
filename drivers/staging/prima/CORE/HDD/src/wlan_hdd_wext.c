@@ -5907,7 +5907,7 @@ static int __iw_setint_getnone(struct net_device *dev,
             }
             break;
         }
-
+#ifdef FEATURE_WLAN_TDLS
         case WE_SET_TDLS_2040_BSS_COEXISTENCE:
         {
             VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO,
@@ -5922,6 +5922,7 @@ static int __iw_setint_getnone(struct net_device *dev,
 
             break;
         }
+#endif
         /* Bit mask value to enable RTS/CTS for different modes
          * for 2.4 GHz, HT20 - 0x0001, for 2.4 GHz, HT40 - 0x0002
          * for 2.4 GHz, VHT20 - 0x0004, for 2.4 GHz, VHT40 - 0x0008

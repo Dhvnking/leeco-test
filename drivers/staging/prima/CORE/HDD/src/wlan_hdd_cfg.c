@@ -2636,6 +2636,7 @@ REG_VARIABLE( CFG_EXTSCAN_ENABLE, WLAN_PARAM_Integer,
              CFG_ENABLE_LPWR_IMG_TRANSITION_MIN,
              CFG_ENABLE_LPWR_IMG_TRANSITION_MAX ),
 
+#ifdef FEATURE_WLAN_TDLS
    REG_VARIABLE( CFG_ENABLE_CONSECUTIVE_BMISS_NAME, WLAN_PARAM_Integer,
              hdd_config_t, enable_conc_bmiss,
              VAR_FLAGS_OPTIONAL | VAR_FLAGS_RANGE_CHECK_ASSUME_DEFAULT,
@@ -2649,7 +2650,7 @@ REG_VARIABLE( CFG_EXTSCAN_ENABLE, WLAN_PARAM_Integer,
              CFG_ENABLE_UNITS_BEACON_WAIT_DEFAULT,
              CFG_ENABLE_UNITS_BEACON_WAIT_MIN,
              CFG_ENABLE_UNITS_BEACON_WAIT_MAX ),
-
+#endif
 
 #ifdef WLAN_ACTIVEMODE_OFFLOAD_FEATURE
    REG_VARIABLE( CFG_ACTIVEMODE_OFFLOAD_ENABLE, WLAN_PARAM_Integer,
@@ -4073,7 +4074,9 @@ static void print_hdd_cfg(hdd_context_t *pHddCtx)
   VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO_HIGH, "Name = [gAcsScanBandPreference] Value = [%u] ",pHddCtx->cfg_ini->acsScanBandPreference);
   VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO_HIGH, "Name = [gACSBandSwitchThreshold] value = [%u]",pHddCtx->cfg_ini->acsBandSwitchThreshold);
   VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO_HIGH, "Name = [gDeferScanTimeInterval] value = [%u]",pHddCtx->cfg_ini->nDeferScanTimeInterval);
+#ifdef FEATURE_WLAN_TDLS
   VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO_HIGH, "Name = [gEnableTDLSScan] value = [%u]\n",pHddCtx->cfg_ini->fEnableTDLSScan);
+#endif
   VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO_HIGH, "Name = [gDxeReplenishRXTimerVal] Value = [%u] ", pHddCtx->cfg_ini->dxeReplenishRXTimerVal);
   VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO_HIGH, "Name = [gDxeSSREnable] Value = [%u] ", pHddCtx->cfg_ini->dxeSSREnable);
   VOS_TRACE(VOS_MODULE_ID_HDD, VOS_TRACE_LEVEL_INFO_HIGH, "Name = [toggleArpBDRates] Value = [%u] ", pHddCtx->cfg_ini->toggleArpBDRates);
