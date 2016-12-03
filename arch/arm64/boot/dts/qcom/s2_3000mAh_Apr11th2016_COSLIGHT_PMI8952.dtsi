@@ -1,4 +1,3 @@
-
 qcom,S2_msm8952_coslight_3000mAh {
 	/* #2388262_s2_QL1531_3000mAh_averaged_MasterSlave_Apr11th2016*/
 	qcom,max-voltage-uv = <4400000>;
